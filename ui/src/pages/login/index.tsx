@@ -74,7 +74,7 @@ const Login = () => {
         message: intl.formatMessage({id: 'login.password.maxlength'})
       },
       pattern: {
-        value: /^[A-Z0-9._-]+$/i,
+        value: /^[A-Z0-9._#-]+$/i,
         message: intl.formatMessage({id: 'login.password.invalid'})
       }
     });
