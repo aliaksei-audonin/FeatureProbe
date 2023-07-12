@@ -108,10 +108,10 @@ public class LdapAccountValidator implements AccountValidator{
         try {
             ldapTemplate.authenticate(query().where(ldapUsernameAttribute).is(token.getAccount()),token.getPassword());
             return true;
-        }catch (EmptyResultDataAccessException e) {
-            throw new UsernameNotFoundException("Account not find on Ldap Server."+e.getMessage());
-        } catch (AuthenticationCredentialsNotFoundException e) {
-            throw new UsernameNotFoundException("Account password not correct on Ldap Server."+e.getMessage());
+//        }catch (EmptyResultDataAccessException e) {
+//            throw new UsernameNotFoundException("Account not find on Ldap Server."+e.getMessage());
+//        } catch (AuthenticationCredentialsNotFoundException e) {
+//            throw new UsernameNotFoundException("Account password not correct on Ldap Server."+e.getMessage());
         } catch (Exception e) {
             log.error("err when authenticate on ldap server {}",e.getMessage());
         }
