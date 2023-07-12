@@ -93,6 +93,7 @@ public class LdapAccountValidator implements AccountValidator{
             if (ldapAuthPassCheck || passwordMatched) {
                 if (MemberStatusEnum.ACTIVE.name().equals(member.getStatus().name())) {
                     member.setVisitedTime(new Date());
+                    memberService.save(member);
                     operationLogService.save(log);
                     return new UserPasswordAuthenticationToken(AuthenticatedMember.create(immutableMember,
                             organizationMemberModel), Collections.emptyList());
